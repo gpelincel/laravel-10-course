@@ -1,4 +1,12 @@
-<h1>Dúvida {{ $support->id }}</h1>
+@extends('admin.layouts.app')
+
+@section('title', "Editar dúvida {$support->subject}")
+
+@section('header')
+    <h1 class="text-lg text-black-500">Dúvida {{ $support->id }}</h1>
+@endsection
+
+@section('content')
 
 <x-alert></x-alert>
 
@@ -7,4 +15,6 @@
     @include('admin.supports.partials.form', [
         'support' => $support
     ])
-</form>
+</form>    
+@endsection
+

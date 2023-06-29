@@ -1,27 +1,14 @@
-<h1>Listagem supports</h1>
+@extends('admin.layouts.app')
 
-<a href="{{route('supports.create')}}">Novo support</a>
+@section('title', 'Fórum')
 
-<table>
-    <thead>
-        <th>assunto</th>
-        <th>status</th>
-        <th>description</th>
-        <th></th>
-    </thead>
-    <tbody>
-        @foreach ($supports->items() as $support)
-        <tr>
-            <td>{{ $support->subject }}</td>
-            <td>{{ getStatusSupport($support->status) }}</td>
-            <td>{{ $support->body }}</td>
-            <td>
-                <a href="{{route('supports.show', $support->id)}}"> Ver </a>
-                <a href="{{route('supports.edit', $support->id)}}"> Editar </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+@section('header')
+    @include('admin.supports.partials.header')
+@endsection
 
-<x-pagination :paginator="$supports" :filter="$filters"/>
+@section('content')
+        
+    @include('admin.supports.partials.content')
+
+    <x-pagination :paginator="$supports" :filter="$filters" />
+@endsection

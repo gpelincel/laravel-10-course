@@ -18,7 +18,7 @@ class SupportService
     public function paginate(
         string $filter = null,
         int $page = 1,
-        int $totalPerPage = 15,
+        int $totalPerPage = 5,
     ) {
 
         return $this->repository->paginate(page: $page, totalPerPage: $totalPerPage, filter: $filter);
